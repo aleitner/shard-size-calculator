@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
     uint64_t file_size = 0;
     sscanf(argv[1], "%"PRIu64, &file_size);
 
-    if (file_size < 1 || file_size > LLONG_MAX) {
+    if (strlen(argv[1]) > 20 || file_size < 1 || file_size > UINT64_MAX) {
         printf("Invalid file size.\n");
         return 0;
     }
