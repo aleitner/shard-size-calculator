@@ -6,6 +6,11 @@
 #include <math.h>
 #include <inttypes.h>
 #include <limits.h>
+#ifdef __APPLE__
+#include <stdint.h>
+#else
+#include <cstdint>
+#endif
 
 #define MAX_SHARD_SIZE 4294967296 // 4Gb
 #define SHARD_MULTIPLES_BACK 4
@@ -23,7 +28,7 @@ int main(int argc, char **argv) {
     uint64_t file_size = 0;
     sscanf(argv[1], "%"PRIu64, &file_size);
 
-    if (file_size < 1 || file_size > LLONG_MAX) {
+    if (strlen(argv[1]) > 20 || file_size < 1 || file_size > UINT64_MAX) {
         printf("Invalid file size.\n");
         return 0;
     }
