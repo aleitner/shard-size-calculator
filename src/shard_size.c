@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <math.h>
-#include <sys/stat.h>
+#include <inttypes.h>
 #include <limits.h>
 
 #define MAX_SHARD_SIZE 4294967296 // 4Gb
@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
     }
 
     uint64_t file_size = 0;
-    sscanf(argv[1], "%llu", &file_size);
+    sscanf(argv[1], "%"PRIu64, &file_size);
 
     if (file_size < 1 || file_size > LLONG_MAX) {
         printf("Invalid file size.\n");
@@ -32,8 +32,8 @@ int main(int argc, char **argv) {
 
     int total_shards = ceil((double)file_size / shard_size);
 
-    printf("File Size:    %llu\n", file_size);
-    printf("Shard Size:   %llu\n", shard_size);
+    printf("File Size:    %"PRIu64"\n", file_size);
+    printf("Shard Size:   %"PRIu64"\n", shard_size);
     printf("Total Shards: %d\n", total_shards);
 
     return 0;
