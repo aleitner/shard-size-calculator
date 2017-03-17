@@ -1,7 +1,7 @@
-Shard size calculator for optimal shards to be uploader to storj network.
+Shard size calculator for determining optimal shard size to be uploaded to storj network.
 
 build
-`gcc shard_size.c -o shard_size`
+`gcc src/shard_size.c -o bin/shard_size`
 
 run
-`usage: shard_size file_size`
+`bin/shard_size file_size`
