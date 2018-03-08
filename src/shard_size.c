@@ -41,7 +41,7 @@ int main(int argc, char **argv) {
 
 uint64_t shard_size(int hops)
 {
-    return (8  * (1024 * 1024)) * pow(2, hops);
+    return (2  * (1024 * 1024)) * pow(2, hops);
 };
 
 uint64_t determine_shard_size(uint64_t file_size, int accumulator)
